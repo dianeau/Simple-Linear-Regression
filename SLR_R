@@ -16,7 +16,7 @@ summary(CC)
 plot(calories, WG, main="Weight Gain vs. Calories consumed")
 
 
-#Correlation coefficiant between the columns - 0.946991
+#Correlation between the columns: 0.946991
 cor(calories, WG)
 
 
@@ -24,8 +24,9 @@ cor(calories, WG)
 WGM <- lm(WG ~ calories)
 summary(WGM)
  
-
 #given R^2 value is above 0.8 (0.8968), it is considered a good/ strong fit model.
+
+
 
 #check fitted values(predicted)
 WGM$fitted.values
@@ -38,13 +39,13 @@ pred <- predict(WGM)
 WGM$residuals
 sum(WGM$residuals)
 
-#check for mean of sum of errors is equal to 0
+#check for mean of sum of errors is equal to 0 (4.822036e-15)
 mean(WGM$residuals)
-hist(WGM$residuals) # check errors are normally distributed or not.
 
-#Check for RMSE value
+
+
+#Check for RMSE value (103.3025, sum = mean)
 sqrt(sum(WGM$residuals^2)/nrow(CC))  #RMSE
-
 sqrt(mean(WGM$residuals^2))
 
 #interval for 5% of confidence
@@ -64,4 +65,4 @@ ggplot(data = CC, aes(x = `calories`, y =`WG`)) +
 # Coe. are significant and coe.of Determination value is R^2 is 0.89 which is also good
 # sum of errors is 6.750156e-14 which is almost 0 and errors are almost normally distributed.
 # RMSE value is 103.30 which is nearest to lower range value of weight gain
-# so model is best fit
+# model = best fit
