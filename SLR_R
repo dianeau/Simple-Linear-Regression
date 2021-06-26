@@ -1,0 +1,7 @@
+#Question 1 - Calories_consumed-> predict weight gained using calories consumed
+
+library(readxl)
+
+CC <- read_csv(file.choose()) 
+View(CC)
+colnames(CC) <- c("WG","calories")
